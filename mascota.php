@@ -1,33 +1,51 @@
-<?php
-if(isset($_POST["Numero"]))
-{
- $numero = $_POST['Numero'];
+<?php 
+class Perro {
+	//se declara los atributos de la clase Perro 
+	public $color;
+	public $Tamaño;
+	public $pelaje= true;
+	public $Edad;
+	public $Numero=7;
+	
 
-$resultado = 7*($numero); 
+	public function __construct($color, $Tamaño,$pelaje,$Edad) {
+		$this->color = $color;
+		$this->Tamaño = $Tamaño;
+		$this->pelaje = $pelaje;
+		
+		$this->Edad = $Edad;
+		
+	}
+	
+	public function Ladrar() {
+		return print('<p> !El perro ladra: Guau,Guau,Guau!</p>');
+	}
+	public function Edad() {
+		
+		$V1=$this->Numero;
+		$V2=$this->Edad;
+		echo 'La edad de la mascota es:' .  ($V1*$V2) ; 
+		
+		
+	}	  
+	
+	
+	public function Datosperro() {
+		return print('<ul>
+	
+				<li>color <b>' . $this->color . '</b></li>
+				<li>Tamaño <b>' . $this->Tamaño . '</b></li>
+				<li>pelaje <b>' . $this->pelaje . '</b></li>
+				<li>Edad <b>' . $this->Edad . '</b></li>
+			</ul>');
+	}	
 }
-//function edad ($numero) {
- // $numero=numero*7;
-  //return numero;
-
-//} 
 
 
-?>
-<!DOCTYPE html >
-<html lang="es">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Cálculo de la edad Canina</title>
-<form name="form1" method="post" action="">
-  <p>
-    <label for="Numero"></label>
-    Numero <input type="text" name="Numero" id="Numero" placeholder="Escribe la edad de tu mascota en años humanos">
-  </p>
-  <p>
-    <label for="Result">Su edad es</label>
-      <input name="Result" type="text" id="Result" value=" <?php echo $resultado; ?>" > 
+echo '<h1>Datos Perro</h1>';
 
-  </p>
-    <input type="submit" name="Enviar" id="Enviar" value="Enviar">
-
-</form>
-</html>
+echo '<h2>Perro:</h2>';
+$P = new Perro('Cafe', 'Mediano','Tupido',5);
+$P ->Datosperro();
+$P ->Ladrar();
+$P ->Edad();
